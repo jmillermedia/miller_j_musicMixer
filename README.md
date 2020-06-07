@@ -1,18 +1,18 @@
 # Jonathan Miller Music Mixer Project
  Music Mixer For Multimedia Authoring 2
 
-##Description:
+## Description:
 Repo for the Music Mixer project. The project will feature a robot with customizible music loops to be dragged and dropped onto input ports on the robots body. 
 
 ## Installation:
 There is no installation process for this repo. Simply pull down and enjoy.
 
-##Additional Resources:
+## Additional Resources:
 [Pintrest Inspiration Board](https://www.pinterest.ca/jmillermedia/music-mixer-project/ 'Pintrest')
 
 [Icons Used From flaticon.com](https://www.flaticon.com/ 'flaticon')
 
-###Tutorials Used:
+### Tutorials Used:
 
 ## MIT License:
 MIT License
