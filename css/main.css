@@ -5,8 +5,9 @@
 }
 
 #wrapper {
-	width: 1200px;
 	margin: 0px auto;
+	display: flex;
+	justify-content: space-between;
 }
 
 #robotBG {
@@ -14,4 +15,58 @@
 	height: 1135px;
 	margin: 0px auto;
 	background-image: url(../images/robot.svg);
+}
+
+#buttonHolderBG {
+	width: 471px;
+	height: 1008px;
+	margin: 0px auto;
+	background-image: url(../images/buttonHolder.svg);
+	align-self: flex-end;
+}
+
+#buttonHolder {
+/*	border: 1px #fff dotted;*/
+	width: 272px;
+	height: 667.5px;
+	margin-top: 243px;
+	margin-left: 107px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#mainDrop {
+	border: 1px #fff dashed;
+	width: 486.5px;
+	height: 189.5px;
+	margin-top: 474px;
+	margin-left: 285px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.dropZone {
+	border: 1px #fff dashed;
+	width: 87.5px;
+	height: 87.5px;
+}
+
+.buttonColumn {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.button {
+	width: 87.5px;
+	height: 87.5px;
+	filter: grayscale(80%);
+}
+
+.dropRow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
