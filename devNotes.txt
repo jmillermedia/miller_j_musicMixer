@@ -1,7 +1,0 @@
--Use Drag & Drop project as reference for starting point.
-
--Button size 87.5px
-
--Robot drop zone size w: 486.5px, h: 189.5px
-
--Research playing looped music with JavaScript

@@ -59,7 +59,7 @@
 	justify-content: space-between;
 }
 
-.button {
+.loopButton {
 	width: 87.5px;
 	height: 87.5px;
 	filter: grayscale(80%);
