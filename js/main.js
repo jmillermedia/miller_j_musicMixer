@@ -1,7 +1,7 @@
 // JAVASCRIPT START
 
 (() => {
-	const puzzleButtons = document.querySelectorAll('#buttonHolder img'),
+	const puzzleButtons = document.querySelectorAll('#buttonHolder img'), //adds all img tags into a node list
 	loopButtons = document.querySelectorAll('.loopButton'),
 	dropZones = document.querySelectorAll('.dropZone');
 
@@ -20,10 +20,10 @@
 		console.log('dropped on me');
 		let droppedImage = event.dataTransfer.getData('draggedImage');
 		
-		event.target.appendChild(document.querySelector(`#${droppedImage}`));
+		this.target.appendChild(document.querySelector(`${droppedImage}`));
 	}
 
-	puzzleButtons.forEach(piece => piece.addEventListener('dragStart', allowDrag));
+	loopButtons.forEach(button => button.addEventListener('dragstart', allowDrag));
 	// debugger;
 
 	dropZones.forEach(zone => {
