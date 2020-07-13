@@ -19,18 +19,28 @@
 
 	function allowDrop(event) {
 		console.log('dropped on me');
-		let droppedImage = event.dataTransfer.getData('draggedImage');
+		let droppedImage = event.dataTransfer.getData('draggedImage'),
+    	audioLoop = document.querySelector(`audio[data-key="${droppedImage}"]`);
 		
 		if (this.children.length > 0) { // if the div already has a child, stop the code
 			return;
 		}
-
+		console.log(audioLoop);
 		this.appendChild(document.querySelector(`#${droppedImage}`));
 		this.querySelector(`#${droppedImage}`).classList.toggle('noFilter'); // removes the greyscale filter by toggling a CSS rule
+
+		if (!audioLoop) { // ! tests for a negative result
+			return;
+		} 
+	
+		audioLoop.currentTime = 0;
+		audioLoop.play();
+	
 	}
 
 	// click on a button to remove it and stop the audio loop
 	function removeButton(e) {
+		let removeImage = event.dataTransfer.getData
 		this.removeChild;
 	}
 
@@ -41,6 +51,11 @@
 		zone.addEventListener('dragover', allowDragOver); // listen for dragover and run allowDragOver function when it occurs
 		zone.addEventListener('drop', allowDrop); // listen for drop event and run allowDrop function when it occurs
 		zone.addEventListener('click', removeButton);
+	})
+
+	loopButtons.forEach(zone => {
+		zone.addEventListener('dragover', allowDragOver); // listen for dragover and run allowDragOver function when it occurs
+		zone.addEventListener('drop', allowDrop);
 	})
 
 	console.log(audioLoops);
