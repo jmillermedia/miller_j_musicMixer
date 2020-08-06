@@ -5,7 +5,10 @@
 	loopButtons = document.querySelectorAll('.loopButton'),
 	dropZones = document.querySelectorAll('.dropZone'),
 	audioLoops = document.querySelectorAll('.audioLoops'),
-	buttonHole = document.querySelectorAll('.buttonHole');
+	buttonHole = document.querySelectorAll('.buttonHole'),
+	showHowTo = document.querySelector('#howTo'),
+	lightBox = document.querySelector('#howToLB'),
+	closeLB = document.querySelector('#closeLB');
 
 	function allowDrag(event) {
 		event.dataTransfer.setData('draggedImage', this.id);
@@ -56,6 +59,14 @@
 		audioLoop.pause();
 	}
 
+	function hideLightbox() {
+		lightBox.classList.toggle('hidden');
+	}
+
+	function showLightbox() {
+		lightBox.classList.remove('hidden');
+	}
+
 	loopButtons.forEach(button => button.addEventListener('dragstart', allowDrag));
 	// debugger;
 
@@ -74,4 +85,6 @@
 		zone.addEventListener('drop', allowDrop);
 	})
 
+	closeLB.addEventListener('click', hideLightbox);
+	showHowTo.addEventListener('click', showLightbox)
 })();
