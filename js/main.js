@@ -6,6 +6,7 @@
 	dropZones = document.querySelectorAll('.dropZone'),
 	audioLoops = document.querySelectorAll('.audioLoops'),
 	buttonHole = document.querySelectorAll('.buttonHole'),
+	robotAnimations = document.querySelectorAll('.robotAnimations'),
 	showHowTo = document.querySelector('#howTo'),
 	lightBox = document.querySelector('#howToLB'),
 	closeLB = document.querySelector('#closeLB');
@@ -31,10 +32,9 @@
 		if (!audioLoop) { // ! tests for a negative result
 			return;
 		} 
-	
 		audioLoop.currentTime = 0;
 		audioLoop.play();
-	
+		checkAnimations();
 	}
 
 	function allowStopage() {
@@ -57,6 +57,7 @@
 	
 		audioLoop.currentTime = 0;
 		audioLoop.pause();
+		checkAnimations();
 	}
 
 	function hideLightbox() {
@@ -67,24 +68,42 @@
 		lightBox.classList.remove('hidden');
 	}
 
+	function pauseAnimation() {
+		robotAnimations.forEach(anim => anim.style.webkitAnimationPlayState = 'paused');
+	}
+
+	function runAnimation() {
+		robotAnimations.forEach(anim => anim.style.webkitAnimationPlayState = 'running');
+	}
+
+	function checkAnimations() {
+		if (dropZones.children == 0) {
+			pauseAnimation();
+			return;
+		} 
+			runAnimation();
+		}
+
 	loopButtons.forEach(button => button.addEventListener('dragstart', allowDrag));
-	// debugger;
 
 	dropZones.forEach(zone => {
 		zone.addEventListener('dragover', allowDragOver); // listen for dragover and run allowDragOver function when it occurs
 		zone.addEventListener('drop', allowDrop); // listen for drop event and run allowDrop function when it occurs
-	})
+	});
 
 	buttonHole.forEach(hole => {
 		hole.addEventListener('dragover', allowStopage);
 		hole.addEventListener('drop', allowStopDrop);
-	})
+	});
 
 	loopButtons.forEach(zone => {
 		zone.addEventListener('dragover', allowDragOver); // listen for dragover and run allowDragOver function when it occurs
 		zone.addEventListener('drop', allowDrop);
-	})
+	});
+
+	robotAnimations.forEach(roboA => roboA.style.webkitAnimationPlayState = 'paused');
 
 	closeLB.addEventListener('click', hideLightbox);
-	showHowTo.addEventListener('click', showLightbox)
+	showHowTo.addEventListener('click', showLightbox);
+	window.addEventListener('load', pauseAnimation);
 })();
